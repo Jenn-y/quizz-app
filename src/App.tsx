@@ -1,9 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
+import QuestionCard from './components/QuestionCard';
 
-function App() {
-  return (
-    <div className="App">
-      Quizz
+const App = () => {
+  const startTrivia = async () => {
+
+  }
+
+  const checkAnswer = (e: MouseEvent) => {
+
+  }
+
+  const nextQuestion = () => {
+
+  }
+
+  return (<
+    div className="App">
+      <h1>REACT QUIZZ</h1>
+      <button className="start" onClick={startTrivia}>Start</button>
+      <p className="Score">Score:</p>
+      <p>Loading Questions ...</p>
+      <QuestionCard />
+      <button className="next" onClick={nextQuestion}>Next Question</button>
     </div>
   );
 }
