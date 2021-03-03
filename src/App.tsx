@@ -4,15 +4,15 @@ import QuestionCard from './components/QuestionCard';
 const App = () => {
   const startTrivia = async () => {
 
-  }
+  };
 
   const checkAnswer = (e: MouseEvent) => {
 
-  }
+  };
 
   const nextQuestion = () => {
 
-  }
+  };
 
   return (<
     div className="App">
