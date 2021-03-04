@@ -3,17 +3,24 @@ import { FunctionComponent } from 'react';
 
 type Props = {
   question: string;
-  answer: string[];
+  answers: string[];
   callback: any;
   userAnswer: string;
   questionNum: number;
   totalQuestions: number;
-}
-const QuestionCard: FunctionComponent<Props> = () => (
-  <div>
-    <p className="number">Question:</p>
-    
-  </div>
+};
+
+const QuestionCard = ({
+  question,
+  answers,
+  callback,
+  userAnswer
+}: Props) => (
+  <>
+    <p dangerouslySetInnerHTML={{ __html: question }}></p>
+    <div>
+    </div>
+  </>
 );
 
 export default QuestionCard;

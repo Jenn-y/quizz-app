@@ -20,7 +20,7 @@ const App = () => {
       <button className="start" onClick={startTrivia}>Start</button>
       <p className="Score">Score:</p>
       <p>Loading Questions ...</p>
-      <QuestionCard />
+      
       <button className="next" onClick={nextQuestion}>Next Question</button>
     </div>
   );
