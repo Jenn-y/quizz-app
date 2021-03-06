@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import QuestionCard from './components/QuestionCard';
+import {fetchQuestions} from './API';
+import {Difficulty} from './API';
 
 const TOTAL_QUESTIONS = 10;
 
@@ -22,6 +24,8 @@ const App = () => {
   const [answers, setAnswers] = useState([]);
   const [score, setScore] = useState(0);
   const [gameover, setGameover] = useState(true);
+
+  console.log(fetchQuestions(TOTAL_QUESTIONS, Difficulty.EASY));
 
   return (<
     div className="App">
