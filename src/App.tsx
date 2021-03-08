@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import QuestionCard from './components/QuestionCard';
 import {fetchQuestions} from './API';
-import {QuestionState, Difficulty} from './API';
+import {QuestionsState, Difficulty} from './API';
 
-type AnswerObject = {
+export type AnswerObject = {
   question: string;
   answer: string;
   correct: boolean;
   correctAnswer: string;
-}
+};
 
 const TOTAL_QUESTIONS = 10;
 
