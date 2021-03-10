@@ -12,7 +12,7 @@ type Props = {
 
 const QuestionCard = ({
   question,
-  answers,
+  answers = [],
   callback,
   questionNum,
   totalQuestions,
@@ -24,7 +24,7 @@ const QuestionCard = ({
     <div>
       {
         answers.map(answer => {
-          <div>
+          <div key={answer}>
             <button disabled={userAnswer} onClick={callback}>
               <span dangerouslySetInnerHTML={{__html: answer}} />
             </button>

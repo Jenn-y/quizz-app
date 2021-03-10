@@ -14,7 +14,18 @@ const TOTAL_QUESTIONS = 10;
 
 const App = () => {
   const startTrivia = async () => {
+    setLoading(true);
+    setGameover(false);
+    const newQuestions = await fetchQuestions(
+      TOTAL_QUESTIONS,
+      Difficulty.EASY
+    );
 
+    setQuestions(newQuestions);
+    setScore(0);
+    setAnswers([]);
+    setNumber(0);
+    setLoading(false);
   };
 
   const checkAnswer = (e: MouseEvent) => {
@@ -32,23 +43,30 @@ const App = () => {
   const [score, setScore] = useState(0);
   const [gameover, setGameover] = useState(true);
 
-  console.log(fetchQuestions(TOTAL_QUESTIONS, Difficulty.EASY));
-
   return (<
     div className="App">
       <h1>REACT QUIZZ</h1>
-      <button className="start" onClick={startTrivia}>Start</button>
-      <p className="Score">Score:</p>
-      <p>Loading Questions ...</p>
-      <QuestionCard
-        questionNum={number + 1}
-        totalQuestions={TOTAL_QUESTIONS}
-        question={questions[number].question}
-        answers={questions[number].answer}
-        userAnswer={answers ? answers[number] : undefined}
-        callback={checkAnswer}
-        />
-      <button className="next" onClick={nextQuestion}>Next Question</button>
+      {gameover || answers.length === TOTAL_QUESTIONS ? (
+        <button className="start" onClick={startTrivia}>Start</button>
+      ) : null }
+      {!gameover ? <p className="Score">Score:</p> : null}
+      {loading && <p>Loading Questions ...</p>}
+      {!loading && !gameover && (
+        <QuestionCard
+          questionNum={number + 1}
+          totalQuestions={TOTAL_QUESTIONS}
+          question={questions[number].question}
+          answers={questions[number].answer}
+          userAnswer={answers ? answers[number] : undefined}
+          callback={checkAnswer}
+          />
+      )}
+      {!gameover && 
+        !loading && 
+        answers.length === number + 1 
+        && number !== TOTAL_QUESTIONS - 1 ? (
+          <button className="next" onClick={nextQuestion}>Next Question</button>
+      ): null}
     </div>
   );
 }
