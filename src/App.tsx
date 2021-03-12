@@ -46,7 +46,13 @@ const App = () => {
   };
 
   const nextQuestion = () => {
-
+    const nextQuestion = number + 1;
+    if (nextQuestion === TOTAL_QUESTIONS){
+      gameover(true);
+    }
+    else {
+      setNumber(nextQuestion);
+    }
   };
 
   const [loading, setLoading] = useState(false);
