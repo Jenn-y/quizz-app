@@ -31,7 +31,7 @@ const App = () => {
 
   const checkAnswer = (e: MouseEvent) => {
     if (!gameover){
-      const answer = e.currentTarget.value;
+      const answer = e.currentTarget!.value;
       const correct = questions[number].correct_answer === answer;
       if (correct){
         setScore(prev => prev + 1);

@@ -1,7 +1,7 @@
-import styled, {createGlobalStyling} from 'styled-components';
+import styled, {createGlobalStyle} from 'styled-components';
 import bgImage from './images/background.jpg';
 
-export const GlobalStyle = createGlobalStyling`
+export const GlobalStyle = createGlobalStyle`
   html {
     height: 100%;
   }
@@ -19,4 +19,4 @@ export const GlobalStyle = createGlobalStyling`
     box-sizing: border-box;
     font-family: "Catamaran", sans-serif;
   }
-`
+`;
